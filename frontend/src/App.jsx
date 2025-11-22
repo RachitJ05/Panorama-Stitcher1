@@ -10,6 +10,8 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const API = import.meta.env.VITE_API_BASE   // <-- IMPORTANT
+
   const handleUpload = async () => {
     if (files.length < 2) {
       setError('Upload at least 2 images')
@@ -23,12 +25,13 @@ export default function App() {
     files.forEach(f => form.append('images', f))
 
     try {
-      const res = await axios.post('/stitch', form, {
+      const res = await axios.post(`${API}/stitch`, form, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       setResult(res.data)
     } catch (err) {
-      setError('Stitching failed')
+      console.error(err)
+      setError('Stitching failed. Please try again.')
     }
 
     setLoading(false)

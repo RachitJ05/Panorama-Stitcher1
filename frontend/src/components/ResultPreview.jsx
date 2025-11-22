@@ -1,7 +1,11 @@
 import React from 'react'
 
 export default function ResultPreview({ result }) {
-  const createUrl = p => `/download?path=${encodeURIComponent(p)}&t=${Date.now()}`
+
+  const API = import.meta.env.VITE_API_BASE   // <-- IMPORTANT
+
+  const createUrl = p =>
+    `${API}/download?path=${encodeURIComponent(p)}&t=${Date.now()}`
 
   return (
     <div className="mt-10 flex flex-col items-center">
@@ -10,6 +14,7 @@ export default function ResultPreview({ result }) {
       </h2>
 
       <div className="w-full max-w-3xl bg-white/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/30">
+
         <img
           src={createUrl(result.cropped)}
           className="w-full rounded-xl shadow-lg hover:scale-[1.02] transition-transform duration-300"
