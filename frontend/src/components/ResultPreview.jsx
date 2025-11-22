@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ResultPreview({ result }) {
 
-  const API = import.meta.env.VITE_API_BASE   // <-- IMPORTANT
+  const API = import.meta.env.VITE_API_BASE || '';   // <-- IMPORTANT
 
   const createUrl = p =>
     `${API}/download?path=${encodeURIComponent(p)}&t=${Date.now()}`

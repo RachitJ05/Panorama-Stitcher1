@@ -10,7 +10,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const API = import.meta.env.VITE_API_BASE   // <-- IMPORTANT
+  const API = import.meta.env.VITE_API_BASE || '';  // <-- IMPORTANT
 
   const handleUpload = async () => {
     if (files.length < 2) {
