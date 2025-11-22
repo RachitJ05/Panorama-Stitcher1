@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 import os
 from stitcher import stitch_images
-from flask_cors import CORS
+# from flask_cors import CORS
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXT = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
