@@ -17,7 +17,15 @@ def allowed_file(filename):
 
 @app.route('/')
 def home():
-    return "Backend is running!"
+    return jsonify({
+        "message": "Panorama Stitcher Backend is Running",
+        "endpoints": {
+            "ping": "/ping",
+            "stitch": "/stitch",
+            "download": "/download"
+        }
+    })
+gitcd
 
 @app.route('/ping')
 def ping():
