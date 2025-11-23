@@ -70,4 +70,5 @@ npm run dev
 
 ## 📦 Deployment
 Frontend → Vercel
+
 Backend → Render
